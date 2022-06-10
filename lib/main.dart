@@ -4,13 +4,20 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String a = "ABC";
+  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    String a = "Blue";
+    
 
    
     return MaterialApp(
@@ -42,12 +49,18 @@ class MyApp extends StatelessWidget {
                 children: [
                   ElevatedButton(onPressed: (){
                     print("Blue is clicked");
-                    a = "Blue";
+                    setState(() {
+                       a = "Blue";
+                    });
+                   
                   }, child: Text("Blue")),
                   SizedBox(width: 10, ),
                      ElevatedButton(onPressed: (){
                         print("Red is clicked");
-                       a= "Red";
+                        setState(() {
+                           a= "Red";
+                        });
+                      
                      }, child: Text("Red")),
                 ],
               )
