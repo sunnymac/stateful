@@ -13,7 +13,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String a = "ABC";
-  
+  Color mycolor = Colors.green;
+ 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> {
                 alignment: Alignment.center,
                 height: 100,
                 width: 100,
-                color: Colors.yellow,
+                color: mycolor,
                 child: Text("$a", style: TextStyle(fontSize: 50),),
               ),
               SizedBox(
@@ -50,12 +51,14 @@ class _MyAppState extends State<MyApp> {
                   ElevatedButton(onPressed: (){
                     print("Blue is clicked");
                     setState(() {
+                      mycolor = Colors.blue;
                        a = "Blue";
                     });
                    
                   }, child: Text("Blue")),
                   SizedBox(width: 10, ),
                      ElevatedButton(onPressed: (){
+                       mycolor= Colors.red;
                         print("Red is clicked");
                         setState(() {
                            a= "Red";
