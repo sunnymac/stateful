@@ -29,33 +29,28 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-         
-        body: Center(
+         appBar: AppBar(
+           title: Text("Stateful Demo"),
+         ),
+        body: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Container(
-                alignment: Alignment.center,
-                height: 100,
-                width: 100,
-                color: mycolor,
-                child: Text("$a", style: TextStyle(fontSize: 50),),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-
+             
+        
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  ElevatedButton(onPressed: (){
+                  ElevatedButton(
+
+                    onPressed: (){
                     print("Blue is clicked");
                     setState(() {
                       mycolor = Colors.blue;
                        a = "Blue";
                     });
                    
-                  }, child: Text("Blue")),
+                  }, child: Text("DARK MODE")),
                   SizedBox(width: 10, ),
                      ElevatedButton(onPressed: (){
                        mycolor= Colors.red;
@@ -64,9 +59,16 @@ class _MyAppState extends State<MyApp> {
                            a= "Red";
                         });
                       
-                     }, child: Text("Red")),
+                     }, child: Text("LIGHT MODE")),
                 ],
-              )
+              ),
+
+              SizedBox(height: 100,),
+              Text("LIGHT MODE SELECTED",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20
+              ),)
             ],
           ),
         ),
