@@ -12,8 +12,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String a = "ABC";
-  Color mycolor = Colors.green;
+ Color bgcolor = Colors.white;
+ Color textcolor = Colors.black;
  
   // This widget is the root of your application.
   @override
@@ -29,6 +29,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
+        backgroundColor: bgcolor,
          appBar: AppBar(
            title: Text("Stateful Demo"),
          ),
@@ -44,19 +45,22 @@ class _MyAppState extends State<MyApp> {
                   ElevatedButton(
 
                     onPressed: (){
-                    print("Blue is clicked");
+                    
                     setState(() {
-                      mycolor = Colors.blue;
-                       a = "Blue";
+                       bgcolor =Colors.black;
+                         textcolor = Colors.white;
+                    
                     });
                    
                   }, child: Text("DARK MODE")),
                   SizedBox(width: 10, ),
                      ElevatedButton(onPressed: (){
-                       mycolor= Colors.red;
-                        print("Red is clicked");
+                       
+                      
+                       
                         setState(() {
-                           a= "Red";
+                         bgcolor =Colors.white;
+                         textcolor = Colors.black;
                         });
                       
                      }, child: Text("LIGHT MODE")),
@@ -67,7 +71,8 @@ class _MyAppState extends State<MyApp> {
               Text("LIGHT MODE SELECTED",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 20
+                fontSize: 20,
+                color: textcolor,
               ),)
             ],
           ),
